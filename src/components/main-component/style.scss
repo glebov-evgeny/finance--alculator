@@ -1,0 +1,91 @@
+.layer{
+  margin: 1rem auto;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  background: rgb(220 220 220 / 80%);
+  max-width: 80rem;
+  box-sizing: content-box;
+  &__top{
+    text-align: center;
+    padding: 0 0 2.5rem;
+    border-bottom: 0.1rem solid #eee;
+  }
+  &__price{
+    font-size: 3.2rem;
+    font-weight: 600;
+  }
+  &__block{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 2.5rem 0;
+    &-info{
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+  }
+  &__pull{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-height: 310px;
+    overflow: auto;
+    padding-right: 0.5rem;
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(84 84 84 / 20%);
+      border-radius: 1rem;
+    }
+
+    &::-webkit-scrollbar {
+      width: .6rem;
+    }
+
+  }
+  &__card{
+    position: relative;
+    display: flex;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background: #c5c5c5;
+    &-content{
+      width: 100%;
+    }
+    &-price{
+      font-size: 2rem;
+      line-height: 115%;
+    }
+    &-date{
+      font-size: 1.4rem;
+      line-height: 115%;
+    }
+    &-line{
+      width: 60%;
+      height: .1rem;
+      background: #eeeeee;
+      margin: 1rem 0;
+    }
+    &-btn{
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: brown;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      padding: 0.5rem;
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
