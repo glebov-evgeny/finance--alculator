@@ -1,4 +1,5 @@
 import arrow from "../../assets/img/common/arrow.svg"
+// import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from "firebase/firestore"
 
 function MainComponent() {
 
