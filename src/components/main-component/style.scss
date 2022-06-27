@@ -88,4 +88,86 @@
       height: 2rem;
     }
   }
+
+  &__bottom{
+    background: #fff;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    &-composition{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+  }
+  &__info{
+    text-align: center;
+    margin-bottom: 1rem;
+    &-text{
+      font-size: 1.6rem;
+      line-height: 115%;
+    }
+  }
+  &__logic{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-tumbler{
+      height: 3.5rem;
+      width: 3.5rem;
+      border: none;
+      outline: none;
+      border-radius: .5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &-img{
+        filter: invert(1);
+      }
+      &._in{
+        background: #41bb33;
+        border: .1px solid #41bb33;
+      }
+    }
+  }
+  &__input{
+    min-height: 3.5rem;
+    width: 100%;
+    border: .1px solid #000;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    color: #000;
+
+    &-block{
+      display: flex;
+      width: 100%;
+      margin-right: .5rem;
+    }
+  }
+  &__actions{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    &-btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.5rem;
+      width: 100%;
+      border: none;
+      border-radius: .5rem;
+      outline: none;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 100%;
+      &._submit{
+        background: #41bb33;
+      }
+      &._clear{
+        background: #a52a2a;
+      }
+    }
+  }
 }
