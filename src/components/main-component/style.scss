@@ -48,12 +48,17 @@
     }
 
   }
+  &__minus{
+    .layer__card{
+      background: #d8d5d5;
+    }
+  }
   &__card{
     position: relative;
     display: flex;
     padding: 1.5rem;
     border-radius: 1.5rem;
-    background: #c5c5c5;
+    background: #ffffff;
     &-content{
       width: 100%;
     }
@@ -105,6 +110,8 @@
     &-text{
       font-size: 1.6rem;
       line-height: 115%;
+      font-weight: 500;
+      color: #a52a2a;
     }
   }
   &__logic{
@@ -121,11 +128,20 @@
       align-items: center;
       justify-content: center;
       &-img{
+        transition: .3s;
+        max-width: 1.5rem;
         filter: invert(1);
       }
       &._in{
         background: #41bb33;
         border: .1px solid #41bb33;
+      }
+      &._out{
+        background: #a52a2a;
+        border: .1px solid #a52a2a;
+        .layer__logic-tumbler-img{
+          transform: rotate(180deg);
+        }
       }
     }
   }
@@ -138,7 +154,9 @@
     font-size: 1.6rem;
     line-height: 1.6rem;
     color: #000;
-
+    &.error{
+      border: .1px solid #a52a2a;
+    }
     &-block{
       display: flex;
       width: 100%;
