@@ -13,6 +13,7 @@ function MainComponent() {
         await addDoc(collection(db, 'items'), {
             price: Number(value),
             status: true,
+            time: () => getDate(serverTimestamp()),
             createAt: serverTimestamp()
         });
         setValue('');
@@ -35,8 +36,6 @@ function MainComponent() {
             }
             // eslint-disable-next-line
             setTotalSumm(result)
-
-            /* добавляю в стэйт  */
             // eslint-disable-next-line
             setInformation(informationArr);
         });
@@ -53,12 +52,9 @@ function MainComponent() {
         let result = props.toDate();
         let dd = result.getDate();
         if (dd < 10) dd = '0' + dd;
-
         let mm = result.getMonth() + 1;
         if (mm < 10) mm = '0' + mm;
-
         let yy = result.getFullYear();
-
         return dd + '.' + mm + '.' + yy;
     }
 
@@ -67,7 +63,6 @@ function MainComponent() {
             <div className="container">
                 <div className="layer__top">
                     <p className="layer__price"><span className="layer__price-total">{getPriceNmb(totalSum)}</span> &#8381;</p>
-                    {/*<p>{{information}}</p>*/}
                 </div>
                 <div className="layer__block">
                     <div className="layer__aside">
@@ -78,9 +73,9 @@ function MainComponent() {
                                     <div className="layer__card-content">
                                         <p className="layer__card-price"><span className="layer__card-price-total">{item.price}</span> &#8381;</p>
                                         <div className="layer__card-line"></div>
-                                        {/*<p className="layer__card-date">{getDate(item.createAt)}</p>*/}
+                                        <p className="layer__card-date">{item.time}</p>
                                     </div>
-                                    <button className="layer__card-btn">x</button>
+                                    <button className="layer__card-btn" onClick={()=>deleteItem()}>x</button>
                                 </div>
                             ))}
                         </div>
@@ -93,7 +88,7 @@ function MainComponent() {
                                     <div className="layer__card-content">
                                         <p className="layer__card-price"><span className="layer__card-price-total">{item.price}</span> &#8381;</p>
                                         <div className="layer__card-line"></div>
-                                        {/*<p className="layer__card-date">{getDate(item.createAt)}</p>*/}
+                                        <p className="layer__card-date">{getDate(item.createAt)}</p>
                                     </div>
                                     <button className="layer__card-btn">x</button>
                                 </div>
