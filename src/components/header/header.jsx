@@ -1,6 +1,6 @@
 import React from "react";
 import {
-    Link
+    NavLink
 } from "react-router-dom";
 
 function Header() {
@@ -8,8 +8,8 @@ function Header() {
     return (
         <header className="header">
             <div className="container">
-                <Link to="/" className="header__link">Home</Link>
-                <Link to="/test" className="header__link">Test</Link>
+                <NavLink to="/" className="header__link" activeClassName="active">Главная</NavLink>
+                <NavLink to="/test" className="header__link" activeClassName="active">Инфо</NavLink>
             </div>
         </header>
     );

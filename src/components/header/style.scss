@@ -9,5 +9,8 @@
     font-size: 1.8rem;
     line-height: 100%;
     margin-right: 1rem;
+    &.active{
+      font-weight: 600;
+    }
   }
 }

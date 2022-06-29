@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import {getFirestore, collection, addDoc, setDoc, serverTimestamp, onSnapshot, query, doc, deleteDoc} from "firebase/firestore"
+import {getFirestore, collection, setDoc, serverTimestamp, onSnapshot, query, doc, deleteDoc} from "firebase/firestore"
 import arrow from "../../assets/img/common/arrow.png";
 
 function MainComponent() {
@@ -43,24 +43,29 @@ function MainComponent() {
         })
     }
 
+    function lastMessageDelete() {
+        const lastItem = information[0].id;
+        deleteDoc(doc(db, "items", `${lastItem}`));
+    }
+
     const handleKeyDown = (event) => {
         // Исключения
-        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
-           (event.keyCode == 65 && event.ctrlKey === true) ||
+        if (event.keyCode === 46 || event.keyCode === 8 || event.keyCode === 9 || event.keyCode === 27 ||
+           (event.keyCode === 65 && event.ctrlKey === true) ||
            (event.keyCode >= 35 && event.keyCode <= 39)) {
         }
         // Событие на Enter
-        else if(event.keyCode == 13){
+        else if(event.keyCode === 13){
             event.preventDefault();
             sendMessage()
         }
         // Событие на -
-        else if(event.keyCode == 189 || event.keyCode == 109){
+        else if(event.keyCode === 189 || event.keyCode === 109){
             event.preventDefault();
             setStatus(false)
         }
         // Событие на +
-        else if(event.keyCode == 187 || event.keyCode == 107){
+        else if(event.keyCode === 187 || event.keyCode === 107){
             event.preventDefault();
             setStatus(true)
         }
@@ -164,7 +169,7 @@ function MainComponent() {
                                     <div className="layer__card-content">
                                         <p className="layer__card-price"><span className="layer__card-price-total">- {item.price}</span> &#8381;</p>
                                         <div className="layer__card-line"></div>
-                                        <p className="layer__card-date">{item.date} / {item.time} / {item.id} / {item.status}</p>
+                                        <p className="layer__card-date">{item.date} / {item.time}</p>
                                     </div>
                                     <button className="layer__card-btn"
                                             onClick={() => deleteItem(item.id)}
@@ -182,7 +187,7 @@ function MainComponent() {
                                     <div className="layer__card-content">
                                         <p className="layer__card-price"><span className="layer__card-price-total">+ {item.price}</span> &#8381;</p>
                                         <div className="layer__card-line"></div>
-                                        <p className="layer__card-date">{item.date} / {item.time} / {item.id} / {item.status}</p>
+                                        <p className="layer__card-date">{item.date} / {item.time}</p>
                                     </div>
                                     <button className="layer__card-btn"
                                             onClick={() => deleteItem(item.id)}
@@ -221,7 +226,7 @@ function MainComponent() {
                         </div>
                         <div className="layer__actions">
                             <button className="layer__actions-btn _submit" onClick={sendMessage}>Отправить</button>
-                            <button className="layer__actions-btn _clear">Отменить</button>
+                            <button className="layer__actions-btn _clear" onClick={() => lastMessageDelete()}>Отменить</button>
                         </div>
                     </div>
                 </div>
