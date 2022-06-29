@@ -1,14 +1,17 @@
 .layer{
-  margin: 1rem auto;
+  margin: 2rem auto 0;
   padding: 2.5rem;
   border-radius: 1.5rem;
-  background: rgb(220 220 220 / 80%);
-  max-width: 80rem;
-  box-sizing: content-box;
+  background: rgba(255, 255, 255, .3);
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+
   &__top{
     text-align: center;
     padding: 0 0 2.5rem;
-    border-bottom: 0.1rem solid #eee;
+    border-bottom: 0.1rem solid #e1e1e1;
   }
   &__price{
     font-size: 3.2rem;
@@ -16,20 +19,26 @@
   }
   &__block{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 2.5rem;
-    padding: 2.5rem 0;
+    padding: 2.5rem 0 1.5rem;
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     &-info{
       font-size: 1.6rem;
       font-weight: 600;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
+  }
+  &__aside{
+    order: 2;
   }
   &__pull{
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    max-height: 310px;
+    max-height: 295px;
     overflow: auto;
     padding-right: 0.5rem;
 
@@ -63,17 +72,19 @@
       width: 100%;
     }
     &-price{
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 115%;
+      font-weight: 600;
     }
     &-date{
       font-size: 1.4rem;
       line-height: 115%;
+      font-weight: 500;
     }
     &-line{
       width: 60%;
       height: .1rem;
-      background: #eeeeee;
+      background: #e1e1e1;
       margin: 1rem 0;
     }
     &-btn{
@@ -100,17 +111,21 @@
     padding: 1.5rem;
     &-composition{
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      @media (min-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
     }
   }
   &__info{
     text-align: center;
     margin-bottom: 1rem;
     &-text{
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       line-height: 115%;
-      font-weight: 500;
+      font-weight: 600;
       color: #a52a2a;
     }
   }
@@ -127,6 +142,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @media (min-width: 576px) {
+        height: 4.5rem;
+        width: 4.5rem;
+      }
       &-img{
         transition: .3s;
         max-width: 1.5rem;
@@ -154,19 +173,28 @@
     font-size: 1.6rem;
     line-height: 1.6rem;
     color: #000;
+    @media (min-width: 576px) {
+      min-height: 4.5rem;
+    }
     &.error{
       border: .1px solid #a52a2a;
     }
     &-block{
       display: flex;
       width: 100%;
-      margin-right: .5rem;
+      margin-right: 1.5rem;
+      @media (min-width: 576px) {
+        margin-right: .5rem;
+      }
     }
   }
   &__actions{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    @media (min-width: 576px) {
+      gap: .5rem;
+    }
     &-btn{
       display: flex;
       align-items: center;
@@ -180,6 +208,9 @@
       font-size: 1.4rem;
       font-weight: 600;
       line-height: 100%;
+      @media (min-width: 576px) {
+        min-height: 4.5rem;
+      }
       &._submit{
         background: #41bb33;
       }

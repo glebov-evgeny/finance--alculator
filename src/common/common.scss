@@ -1,21 +1,16 @@
 html{
-  font-size: 10px;
-}
-body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
   line-height: 120%;
+}
+body {
   margin: 0;
   height: 100vh;
   background-image: linear-gradient( 290deg, #efefef 0%, #efefef 18%, #e6e6e6 20%, #efefef 20%, #efefef 75%, #e6e6e6 80%, #efefef 80%, #e6e6e6 100% );
   color: #000;
   overflow-x: hidden;
-}
-
-.root{
-  padding: 0 1rem;
 }
 
 a {
@@ -342,6 +337,13 @@ select {
 
 ::-webkit-scrollbar {
   width: .6rem;
+}
+
+
+.root{
+  padding: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
 .container {

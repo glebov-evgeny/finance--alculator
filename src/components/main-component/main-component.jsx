@@ -155,83 +155,81 @@ function MainComponent() {
     }
 
     return (
-        <div className="layer">
-            <div className="container">
-                <div className="layer__top">
-                    <p className="layer__price"><span className="layer__price-total">{getPriceNmb(totalSum)}</span> &#8381;</p>
-                </div>
-                <div className="layer__block">
-                    <div className="layer__aside">
-                        <p className="layer__block-info">Траты:</p>
-                        <div className="layer__minus layer__pull">
-                            {information.filter(item => item.status === false).map((item) => (
-                                <div className={`layer__card`} key={item.id}>
-                                    <div className="layer__card-content">
-                                        <p className="layer__card-price"><span className="layer__card-price-total">- {item.price}</span> &#8381;</p>
-                                        <div className="layer__card-line"></div>
-                                        <p className="layer__card-date">{item.date} / {item.time}</p>
-                                    </div>
-                                    <button className="layer__card-btn"
-                                            onClick={() => deleteItem(item.id)}
-                                    >x</button>
+        <>
+            <div className="layer__top">
+                <p className="layer__price"><span className="layer__price-total">{getPriceNmb(totalSum)}</span> &#8381;</p>
+            </div>
+            <div className="layer__block">
+                <div className="layer__aside">
+                    <p className="layer__block-info">Траты:</p>
+                    <div className="layer__minus layer__pull">
+                        {information.filter(item => item.status === false).map((item) => (
+                            <div className={`layer__card`} key={item.id}>
+                                <div className="layer__card-content">
+                                    <p className="layer__card-price"><span className="layer__card-price-total">- {item.price}</span> &#8381;</p>
+                                    <div className="layer__card-line"></div>
+                                    <p className="layer__card-date">{item.date} / {item.time}</p>
                                 </div>
-                            ))}
+                                <button className="layer__card-btn"
+                                        onClick={() => deleteItem(item.id)}
+                                >x</button>
+                            </div>
+                        ))}
 
-                        </div>
-                    </div>
-                    <div className="layer__main">
-                        <p className="layer__block-info">Поступления:</p>
-                        <div className="layer__plus layer__pull">
-                            {information.filter(item => item.status === true).map((item) => (
-                                <div className={`layer__card`} key={item.id}>
-                                    <div className="layer__card-content">
-                                        <p className="layer__card-price"><span className="layer__card-price-total">+ {item.price}</span> &#8381;</p>
-                                        <div className="layer__card-line"></div>
-                                        <p className="layer__card-date">{item.date} / {item.time}</p>
-                                    </div>
-                                    <button className="layer__card-btn"
-                                            onClick={() => deleteItem(item.id)}
-                                    >x</button>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
-                <div className="layer__bottom">
-                    <div className="layer__info">
-                        <p className="layer__info-text"></p>
-                    </div>
-                    <div className="layer__bottom-composition">
-                        <div className="layer__logic">
-                            <div className="layer__input-block">
-                                <input
-                                    type="number"
-                                    className="layer__input"
-                                    value={inputValue}
-                                    onChange={event => getInfoValue(event.target.value)}
-                                    onKeyDown={handleKeyDown}
-                                />
+                <div className="layer__main">
+                    <p className="layer__block-info">Поступления:</p>
+                    <div className="layer__plus layer__pull">
+                        {information.filter(item => item.status === true).map((item) => (
+                            <div className={`layer__card`} key={item.id}>
+                                <div className="layer__card-content">
+                                    <p className="layer__card-price"><span className="layer__card-price-total">+ {item.price}</span> &#8381;</p>
+                                    <div className="layer__card-line"></div>
+                                    <p className="layer__card-date">{item.date} / {item.time}</p>
+                                </div>
+                                <button className="layer__card-btn"
+                                        onClick={() => deleteItem(item.id)}
+                                >x</button>
                             </div>
-                            <div className="layer__logic-toggle">
-                                {status ? (
-                                    <button className="layer__logic-tumbler _in" onClick={() => changeStatus()}>
-                                        <img src={arrow} className="layer__logic-tumbler-img" alt="arrow" />
-                                    </button>) : (
-                                    <button className="layer__logic-tumbler _out" onClick={() => changeStatus()}>
-                                        <img src={arrow} className="layer__logic-tumbler-img" alt="arrow" />
-                                    </button>
-                                    )
-                                }
-                            </div>
-                        </div>
-                        <div className="layer__actions">
-                            <button className="layer__actions-btn _submit" onClick={sendMessage}>Отправить</button>
-                            <button className="layer__actions-btn _clear" onClick={() => lastMessageDelete()}>Отменить</button>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </div>
+            <div className="layer__bottom">
+                <div className="layer__info">
+                    <p className="layer__info-text"></p>
+                </div>
+                <div className="layer__bottom-composition">
+                    <div className="layer__logic">
+                        <div className="layer__input-block">
+                            <input
+                                type="number"
+                                className="layer__input"
+                                value={inputValue}
+                                onChange={event => getInfoValue(event.target.value)}
+                                onKeyDown={handleKeyDown}
+                            />
+                        </div>
+                        <div className="layer__logic-toggle">
+                            {status ? (
+                                <button className="layer__logic-tumbler _in" onClick={() => changeStatus()}>
+                                    <img src={arrow} className="layer__logic-tumbler-img" alt="arrow" />
+                                </button>) : (
+                                <button className="layer__logic-tumbler _out" onClick={() => changeStatus()}>
+                                    <img src={arrow} className="layer__logic-tumbler-img" alt="arrow" />
+                                </button>
+                                )
+                            }
+                        </div>
+                    </div>
+                    <div className="layer__actions">
+                        <button className="layer__actions-btn _submit" onClick={sendMessage}>Отправить</button>
+                        <button className="layer__actions-btn _clear" onClick={() => lastMessageDelete()}>Отменить</button>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 
