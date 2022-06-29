@@ -40,9 +40,7 @@ function MainComponent() {
                 return item
             }
            return card
-
         })
-        // console.log('-----------')
     }
 
     const handleKeyDown = (event) => {
@@ -93,7 +91,6 @@ function MainComponent() {
                 result = 0
             querySnapshot.forEach(function(doc) {
                 // console.log(doc.data().createAt, " => ", doc.data());
-                // console.log(doc.data())
                 informationArr.push(doc.data());
             })
             /* добавляю в стэйт итоговую сумму */
