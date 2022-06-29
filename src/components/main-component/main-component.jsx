@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query } from "firebase/firestore"
+import {getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query, doc, deleteDoc} from "firebase/firestore"
 import arrow from "../../assets/img/common/arrow.png";
 
 function MainComponent() {
@@ -31,7 +31,26 @@ function MainComponent() {
         }
     };
 
+    /* Удаление элемента */
+    function deleteItem(item){
+        console.log('Выбран элемент: '+ item)
+        // console.log(information)
+        // setInformation(
+        //     information.map(item => {
+        //
+        //         console.log(item.id)
+        //         if(item.id === item) {
+        //             const ref = doc(db, 'items', `${item}`);
+        //             deleteDoc(ref)
+        //             return item
+        //         }
+        //        return item
+        //     })
+        // )
+    }
+
     const handleKeyDown = (event) => {
+        // Исключения
         if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
            (event.keyCode == 65 && event.ctrlKey === true) ||
            (event.keyCode >= 35 && event.keyCode <= 39)) {
@@ -159,7 +178,7 @@ function MainComponent() {
                                         <p className="layer__card-date">{item.date} / {item.time} / {item.id} / {item.status}</p>
                                     </div>
                                     <button className="layer__card-btn"
-                                            onClick={() => changeStatus()}
+                                            onClick={() => deleteItem(item.id)}
                                     >x</button>
                                 </div>
                             ))}
@@ -177,7 +196,7 @@ function MainComponent() {
                                         <p className="layer__card-date">{item.date} / {item.time} / {item.id} / {item.status}</p>
                                     </div>
                                     <button className="layer__card-btn"
-                                            onClick={() => changeStatus()}
+                                            onClick={() => deleteItem(item.id)}
                                     >x</button>
                                 </div>
                             ))}
