@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import {getFirestore, collection, addDoc, serverTimestamp, onSnapshot, query, doc, deleteDoc} from "firebase/firestore"
+import {getFirestore, collection, addDoc, setDoc, serverTimestamp, onSnapshot, query, doc, deleteDoc} from "firebase/firestore"
 import arrow from "../../assets/img/common/arrow.png";
 
 function MainComponent() {
@@ -18,8 +18,9 @@ function MainComponent() {
             alertInput.classList.add('error');
         }
         else{
-            await addDoc(collection(db, 'items'), {
-                id: getRandomId(),
+            const randomId = Date.now();
+            await setDoc(doc(db, 'items', `${randomId}`,  ), {
+                id: randomId,
                 price: Number(inputValue),
                 status: status,
                 date: getDate(),
@@ -33,20 +34,15 @@ function MainComponent() {
 
     /* Удаление элемента */
     function deleteItem(item){
-        console.log('Выбран элемент: '+ item)
-        // console.log(information)
-        // setInformation(
-        //     information.map(item => {
-        //
-        //         console.log(item.id)
-        //         if(item.id === item) {
-        //             const ref = doc(db, 'items', `${item}`);
-        //             deleteDoc(ref)
-        //             return item
-        //         }
-        //        return item
-        //     })
-        // )
+        information.map(card => {
+            if(card.id === item) {
+                deleteDoc(doc(db, "items", `${item}`));
+                return item
+            }
+           return card
+
+        })
+        // console.log('-----------')
     }
 
     const handleKeyDown = (event) => {
@@ -97,6 +93,7 @@ function MainComponent() {
                 result = 0
             querySnapshot.forEach(function(doc) {
                 // console.log(doc.data().createAt, " => ", doc.data());
+                // console.log(doc.data())
                 informationArr.push(doc.data());
             })
             /* добавляю в стэйт итоговую сумму */
@@ -148,11 +145,6 @@ function MainComponent() {
         let ss = currentTime.getSeconds();
         if (ss < 10) ss = '0' + ss;
         return hh + ':' + mm;
-    }
-
-    /* Генератор id */
-    function getRandomId() {
-        return Date.now();
     }
 
     /* Смена статуса поступления платежа */
