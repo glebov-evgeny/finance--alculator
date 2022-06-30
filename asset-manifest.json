@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/finance-calculator/static/css/main.6f4caeee.css",
-    "main.js": "/finance-calculator/static/js/main.89dd715d.js",
+    "main.js": "/finance-calculator/static/js/main.1d363817.js",
     "static/media/Montserrat-BoldItalic.woff": "/finance-calculator/static/media/Montserrat-BoldItalic.b547006cbe2561bcfd08.woff",
     "static/media/Montserrat-ExtraBoldItalic.woff": "/finance-calculator/static/media/Montserrat-ExtraBoldItalic.506bc4a1b94871060f27.woff",
     "static/media/Montserrat-BlackItalic.woff": "/finance-calculator/static/media/Montserrat-BlackItalic.11a8f9ccb449b7e2d396.woff",
@@ -40,10 +40,10 @@
     "static/media/Montserrat-Thin.woff2": "/finance-calculator/static/media/Montserrat-Thin.a7117a0bcff24cc12689.woff2",
     "index.html": "/finance-calculator/index.html",
     "main.6f4caeee.css.map": "/finance-calculator/static/css/main.6f4caeee.css.map",
-    "main.89dd715d.js.map": "/finance-calculator/static/js/main.89dd715d.js.map"
+    "main.1d363817.js.map": "/finance-calculator/static/js/main.1d363817.js.map"
   },
   "entrypoints": [
     "static/css/main.6f4caeee.css",
-    "static/js/main.89dd715d.js"
+    "static/js/main.1d363817.js"
   ]
 }
