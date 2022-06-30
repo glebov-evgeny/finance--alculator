@@ -224,8 +224,8 @@ function MainComponent() {
                         </div>
                     </div>
                     <div className="layer__actions">
-                        <button className="layer__actions-btn _submit" onClick={sendMessage}>Отправить</button>
                         <button className="layer__actions-btn _clear" onClick={() => lastMessageDelete()}>Отменить</button>
+                        <button className="layer__actions-btn _submit" onClick={sendMessage}>Отправить</button>
                     </div>
                 </div>
             </div>
