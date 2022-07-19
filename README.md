@@ -1,1 +1,2 @@
-# finance--alculator
+# Калькулятор финансов.
+React + Firebase
