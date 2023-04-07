@@ -1,7 +1,9 @@
+import { InfoComponent } from "../components/info-component/info-component";
+
 export default function Test() {
     return (
-        <main style={{ padding: "1rem 0" }}>
-            <h2>TEST</h2>
+        <main className="layer">
+            <InfoComponent />
         </main>
     );
 }

@@ -29,6 +29,9 @@
       font-size: 1.6rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      &._normal{
+        font-weight: 400;
+      }
     }
   }
   &__aside{
