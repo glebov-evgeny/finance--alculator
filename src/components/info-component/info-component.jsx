@@ -1,5 +1,4 @@
 function InfoComponent() {
-
     return (
         <>
             <div className="layer__top">
